@@ -77,13 +77,41 @@ public:
         
     }
     virtual void displayInfo() {
-        cout << slices << " " << getName() << " $" << getPrice();
+        cout << slices << " slice " << getName() << " $" << getPrice();
     }
     
 };
 
     
+int main() {
     
+    // vector with menu items
+    vector<Pastry*> menu;
+    
+    menu.push_back(new Croissant("croissant", 3.50, "chocolate"));
+    menu.push_back(new Croissant("croissant", 3.75, "almond"));
+    menu.push_back(new Croissant("croissant", 3.75, "pecan"));
+
+    menu.push_back(new Coffee("coffee", 2.00, "small"));
+    menu.push_back(new Coffee("coffee", 2.50, "medium"));
+    menu.push_back(new Coffee("coffee", 4.00, "large"));
+
+    menu.push_back(new Cake("cake", 12.50, 8));
+    menu.push_back(new Cake("cake", 19.50, 16));
+
+    
+    for(int i = 0; i < menu.size(); i++) {
+        menu[i]->displayInfo();
+        cout << endl;
+    }
+    for (int i = 0; i < menu.size(); i++) {
+        delete menu[i];
+    }
+
+
+    
+    
+}
 
 
 
